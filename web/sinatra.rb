@@ -37,15 +37,9 @@ end
 
 post '/target_url' do
   puts "You sent #{params['new_task']}"
-  # if params['new_task'].empty?
-  #   redirect to ('/')
-  # else
-  # 	tasks.push (params['new_task'])
-  #   redirect to ('/')
-  # end
   store.transaction do
-	store[:tasks] ||= []
-	store[:tasks].push (params['new_task'])
+	  store[:tasks] ||= []
+	  store[:tasks].push (params['new_task'])
   end
   redirect to ('/')
 end
