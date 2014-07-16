@@ -1,17 +1,15 @@
 <html>
   <head>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script href="ajax.js"></script>
+    <script src="app.js"></script>
   </head>
   <body>
-  <div id="llista">
-  	<h1>BETA PAGE</h1>
-  </div>
-
-  <script>
-	  $.get('/api/items', function(data){
-	  	$('#llista').append(data)
-	  })
-  </script>
+  <h1> BETA PAGE</h1>
+    <div id="box"><div id="llista"></div></div>
+    <form id="formulario">
+      <span>New Task</span>
+      <input type="text" name="new_task" id="new_task" required></input>
+      <input type="submit" value="Submit"/>
+    </form>
   </body>
 </html>

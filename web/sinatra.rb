@@ -26,6 +26,14 @@ get '/api/items' do
   	tasks.to_json
 end
 
+post '/api/items/new' do
+  puts "You sent #{params}"
+  store.transaction do
+    store[:tasks] ||= []
+    store[:tasks].push (params['tasks'])
+  end
+  redirect to ('/')
+end
 
 post '/target_url' do
   puts "You sent #{params['new_task']}"
