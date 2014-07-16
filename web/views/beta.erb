@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script href="ajax.js"></script>
+  </head>
+  <body>
+  <div id="llista">
+  	<h1>BETA PAGE</h1>
+  </div>
+
+  <script>
+	  $.get('/api/items', function(data){
+	  	$('#llista').append(data)
+	  })
+  </script>
+  </body>
+</html>
