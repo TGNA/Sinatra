@@ -1,3 +1,3 @@
-require './sinatra.rb'
+require './film.rb'
 
 run Sinatra::Application

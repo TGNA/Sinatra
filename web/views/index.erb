@@ -1,57 +1,33 @@
 <html>
   <head>
-    <style type="text/css">
-    *{margin: 0;padding: 0;font-family: 'Open Sans', sans-serif;}
-    header{
-      margin: auto;
-      background-color: gray;
-    }
-      .benv{color: white; font-size: 2em; margin: 10px;float: left;background-color: gray;}
-      .dat{color: white; font-size: 2em; margin: 10px;float: right;background-color: gray;}
-      .tod{font-size: 0.75em; color: black;background-color: gray;}
-      header{background-color: gray;}
-      .old_tasks{
-        margin: auto;
-        background-color:  gray;
-      }
-      .task{
-        margin-top: 10px;
-      }
-    </style>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  	<style>
+  		nav{display: inline-table;}
+  		.poster{width: 100px;}
+  	</style>
+  	<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   </head>
   <body>
-    <header>
-        <span class="benv">Hello,</span><span class="dat"><span class="tod">today is</span><%= Date.today %></span>
-    </header>
-    <section style="clear: both;">
-    <header>
-    <form action="/target_url" method="POST" id="formulario">
-      <span>New Task</span>
-      <input type="text" name="new_task" id="new_task" required></input>
-      <input type="submit" value="Submit"/>
-    </form>
-    </header>
-    <div class="old_tasks">
-    <ul id='llista' class="llista">
-      <% @tasks.each do |a| %>
-      <li class="task">
-      <%= a %>
-      <button>Delete</button>
-      </li>
-    <% end %>
-    </ul>
+  	<nav>
+  		<header>
+  			<h1>Film Game</h1>
+  			<h2>To start playing search anything or push the random button.</h2>
+  		</header>
+	    <form action="/search" method="POST">
+	      <span>Search by word:</span>
+	      <input type="text" name="search_film" required></input>
+	      <input type="submit" value="Search"/>
+	    </form>
+	    <form action="/random" method="GET">
+	      <input type="submit" value="Random">
+    	</form>
+    </nav>
+  	<div class="films">
+	    <% @films.each do |a|  %>
+	      <img src="<%= a %>"\ class="poster">
+	    <% end %>
     </div>
-    </section>
-  <!--<script type="text/javascript">
-    // var form = document.getElementById('formulario');  
-    // form.addEventListener('submit', function(event){
-    //   var task = document.getElementById('new_task');
-    //   if (task.value.length == 0){
-    //     event.preventDefault()
-    //     alert("Field can't be empty");
-    //   }
-    // })
-    // </script>-->
   </body>
 </html>

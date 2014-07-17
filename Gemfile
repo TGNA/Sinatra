@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra', '~> 1.4.5'
+gem 'imdb'
 
 group :test do
   gem 'rspec', '~> 3.0.0'
